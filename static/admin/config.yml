@@ -32,7 +32,7 @@ collections:
 
   - name: "commentaries"
     label: "Commentary"
-    folder: "src/newsletter-components/commentaries"
+    folder: "src/pages/commentaries"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
