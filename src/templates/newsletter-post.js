@@ -24,8 +24,9 @@ export const NewsletterPostTemplate = ({
   )
 }
 
-export default props => {
-  const { markdownRemark: post } = props.data
+
+export default ({ data }) => {
+  const { markdownRemark: post } = data
 
   return (
     <NewsletterPostTemplate
@@ -37,7 +38,7 @@ export default props => {
 }
 
 export const pageQuery = graphql`
-  query NewsletterIssueByID($id: String!) {
+  query NewsletterPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
