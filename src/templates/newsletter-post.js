@@ -56,15 +56,9 @@ export const pageQuery = graphql`
           articles {
             title
             link
-            commentary
+            comment
             source
           }
-        }
-        videos {
-          video
-        }
-        tweets {
-          tweet
         }
       }
     }
