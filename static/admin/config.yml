@@ -29,7 +29,7 @@ collections:
       - {label: "Subtitle", name: "subtitle", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Intro", name: "intro", widget: "markdown"}
+      - {label: "Intro", name: "body", widget: "markdown"}
       - label: "Links Sections"
         name: "links_sections"
         widget: "list"
@@ -41,18 +41,22 @@ collections:
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Link", name: "link", widget: "string"}
-              - {label: "Commentary", name: "commentary", widget: "markdown"}
+              - {label: "Comment", name: "comment", widget: "markdown"}
               - {label: "Source", name: "source", widget: "string"}
       - label: "Videos"
         name: "videos"
         widget: "list"
         fields:
+          - {label: "Description", name: "description", widget: "string"}
           - {label: "Video Embed", name: "video", widget: "text"}
+          - {label: "Comment", name: "comment", widget: "markdown"}
       - label: "Tweets"
         name: "tweets"
         widget: "list"
         fields:
+          - {label: "Description", name: "description", widget: "string"}
           - {label: "Tweet Embed", name: "tweet", widget: "text"}
+          - {label: "Comment", name: "comment", widget: "markdown"}
 
   - name: "pages"
     label: "Pages"

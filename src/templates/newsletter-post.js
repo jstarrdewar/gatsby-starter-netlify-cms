@@ -6,7 +6,7 @@ export const NewsletterPostTemplate = ({
   description,
   title,
   subtitle,
-  intro
+  content
 }) => {
   const PostContent = contentComponent || Content
 
@@ -19,7 +19,7 @@ export const NewsletterPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               #{title} {subtitle}
             </h1>
-            <PostContent content={intro} />
+            <PostContent content={content} />
           </div>
         </div>
       </div>
@@ -36,6 +36,7 @@ export default ({ data }) => {
       helmet={<Helmet title={`Blog | ${post.frontmatter.title}`} />}
       title={post.frontmatter.title}
       subtitle={post.frontmatter.subtitle}
+      content={post.html}
     />
   )
 }
@@ -50,7 +51,6 @@ export const pageQuery = graphql`
         title
         subtitle
         description
-        intro
         links_sections {
           heading
           articles {
