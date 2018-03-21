@@ -1,12 +1,14 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import Content, { HTMLContent } from '../components/Content'
 
 export const NewsletterPostTemplate = ({
   helmet,
   description,
   title,
   subtitle,
-  content
+  content,
+  contentComponent
 }) => {
   const PostContent = contentComponent || Content
 
@@ -37,6 +39,7 @@ export default ({ data }) => {
       title={post.frontmatter.title}
       subtitle={post.frontmatter.subtitle}
       content={post.html}
+      contentComponent={HTMLContent}
     />
   )
 }
