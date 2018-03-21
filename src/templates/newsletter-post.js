@@ -2,10 +2,14 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 export const NewsletterPostTemplate = ({
+  helmet,
   description,
   title,
-  helmet,
+  subtitle,
+  intro
 }) => {
+  const PostContent = contentComponent || Content
+
   return (
     <section className="section">
       {helmet || ''}
@@ -13,10 +17,9 @@ export const NewsletterPostTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
+              #{title} {subtitle}
             </h1>
-            <p>Bla bla bla</p>
-            <p>{description}</p>
+            <PostContent content={intro} />
           </div>
         </div>
       </div>
@@ -30,9 +33,9 @@ export default ({ data }) => {
 
   return (
     <NewsletterPostTemplate
-      description={post.frontmatter.description}
       helmet={<Helmet title={`Blog | ${post.frontmatter.title}`} />}
       title={post.frontmatter.title}
+      subtitle={post.frontmatter.subtitle}
     />
   )
 }
@@ -45,7 +48,24 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        subtitle
         description
+        intro
+        links_sections {
+          heading
+          articles {
+            title
+            link
+            commentary
+            source
+          }
+        }
+        videos {
+          video
+        }
+        tweets {
+          tweet
+        }
       }
     }
   }
