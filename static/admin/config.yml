@@ -43,6 +43,16 @@ collections:
               - {label: "Link", name: "link", widget: "string"}
               - {label: "Commentary", name: "commentary", widget: "markdown"}
               - {label: "Source", name: "source", widget: "string"}
+      - label: "Videos"
+        name: "videos"
+        widget: "list"
+        fields:
+          - {label: "Video Embed", name: "video", widget: "text"}
+      - label: "Tweets"
+        name: "tweets"
+        widget: "list"
+        fields:
+          - {label: "Tweet Embed", name: "tweet", widget: "text"}
 
   - name: "pages"
     label: "Pages"
