@@ -54,10 +54,9 @@ collections:
         name: "tweets"
         widget: "list"
         fields:
+          - {label: "Tweet ID", name: "id", widget: "string"}
           - {label: "Description", name: "description", widget: "string"}
-          - {label: "Tweet Embed", name: "tweet", widget: "text"}
           - {label: "Comment", name: "comment", widget: "markdown"}
-
   - name: "pages"
     label: "Pages"
     files:

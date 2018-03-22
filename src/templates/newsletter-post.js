@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Content, { HTMLContent } from '../components/Content'
+import Tweets from '../components/Tweets'
 
 export const NewsletterPostTemplate = ({
   helmet,
@@ -8,7 +9,8 @@ export const NewsletterPostTemplate = ({
   title,
   subtitle,
   content,
-  contentComponent
+  contentComponent,
+  tweets
 }) => {
   const PostContent = contentComponent || Content
 
@@ -22,6 +24,10 @@ export const NewsletterPostTemplate = ({
               #{title} {subtitle}
             </h1>
             <PostContent content={content} />
+            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+              Tweets
+            </h1>
+            <Tweets tweets={tweets} />
           </div>
         </div>
       </div>
@@ -35,11 +41,14 @@ export default ({ data }) => {
 
   return (
     <NewsletterPostTemplate
-      helmet={<Helmet title={`Blog | ${post.frontmatter.title}`} />}
+      helmet={
+        <Helmet title={`Newsletter #${post.frontmatter.title}`} >
+        </Helmet>}
       title={post.frontmatter.title}
       subtitle={post.frontmatter.subtitle}
       content={post.html}
       contentComponent={HTMLContent}
+      tweets={post.frontmatter.tweets}
     />
   )
 }
@@ -62,6 +71,16 @@ export const pageQuery = graphql`
             comment
             source
           }
+        }
+        videos {
+          description
+          video
+          comment
+        }
+        tweets {
+          description
+          id
+          comment
         }
       }
     }

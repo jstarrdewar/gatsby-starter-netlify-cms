@@ -1,8 +1,8 @@
 import React from 'react'
-import { NewsletterTemplate } from '../../templates/newsletter'
+import { NewsletterPostTemplate } from '../../templates/newsletter-post'
 
-const NewsletterPreview = ({ entry, widgetFor }) => (
-  <NewsletterTemplate
+const NewsletterPostPreview = ({ entry, widgetFor }) => (
+  <NewsletterPostTemplate
     description={entry.getIn(['data', 'description'])}
     title={entry.getIn(['data', 'title'])}
   />
